@@ -1,5 +1,7 @@
 import { useState, useRef } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { Container, StyledInput, StyledButton } from "../styles/CommonStyle";
+
 // Link 바로감 , useNavigate 조건을 걸고 갈때
 const Login = () => {
   // 키보드 입력에 대한 상태 관리
@@ -32,22 +34,30 @@ const Login = () => {
       alert("아이디 또는 패스워드가 틀립니다.");
     }
   };
+  const passOver = () => {
+    navigate("/home");
+  };
   return (
-    <>
-      <input value={inputId} placeholder="아이디 입력" onChange={onChangeId} />
+    <Container>
+      <StyledInput
+        value={inputId}
+        placeholder="아이디 입력"
+        onChange={onChangeId}
+      />
       <br />
-      <input
+      <StyledInput
         value={inputPw}
         placeholder="패스워드 입력"
         onChange={onChangePw}
       />
       <br />
+      <StyledButton onClick={passOver}>걍 패스</StyledButton>
       {isId && isPw ? (
-        <button onClick={onClickLogin}>로그인</button>
+        <StyledButton onClick={onClickLogin}>로그인</StyledButton>
       ) : (
-        <button disabled>로그인</button>
+        <StyledButton disabled>로그인</StyledButton>
       )}
-    </>
+    </Container>
   );
 };
 
