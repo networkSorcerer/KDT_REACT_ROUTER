@@ -4,7 +4,7 @@ export const UserContext = createContext(null); // UserContext 생성
 const UserStore = (props) => {
   const [userId, setUserId] = useState("");
   const [password, setPassword] = useState("");
-
+  const [color, setColor] = useState("white");
   return (
     <UserContext.Provider
       value={{
@@ -12,6 +12,8 @@ const UserStore = (props) => {
         setUserId,
         password,
         setPassword,
+        color,
+        setColor,
       }}
     >
       {props.children}

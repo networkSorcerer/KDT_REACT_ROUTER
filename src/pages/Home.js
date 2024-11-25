@@ -1,12 +1,15 @@
 import { Link } from "react-router-dom";
 import { UserContext } from "../context/UserStore";
 import { useContext } from "react";
+import styled from "styled-components";
+
+const Container = styled.div`
+  background-color: ${(props) => props.color};
+`;
 const Home = () => {
-  const { userId, password } = useContext(UserContext);
+  const { userId, password, color } = useContext(UserContext);
   return (
-    <>
-      <h1>여기는 홈입니다</h1> <br />
-      <p>가장 먼저 보이는 페이지 입니다.</p> <br></br>
+    <Container color={color}>
       <ul>
         <li>
           {" "}
@@ -31,7 +34,7 @@ const Home = () => {
           <p>패스워드 : {password}</p>
         </li>
       </ul>
-    </>
+    </Container>
   );
 };
 

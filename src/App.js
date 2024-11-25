@@ -9,6 +9,7 @@ import Articles from "./pages/Articles";
 import Login from "./pages/Login";
 import Layout from "./styles/Layout";
 import UserStore from "./context/UserStore";
+import Setting from "./pages/Setting";
 function App() {
   return (
     <>
@@ -23,6 +24,7 @@ function App() {
               <Route path="/profile/:username" element={<Profile />} />
               <Route path="/articles" element={<Articles />} />
               <Route path="/article/:id" element={<Article />} />
+              <Route path="/setting" element={<Setting />} />
             </Route>
           </Routes>
         </Router>
