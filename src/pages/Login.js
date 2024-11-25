@@ -1,6 +1,7 @@
-import { useState, useRef } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useState, useContext } from "react";
+import { useNavigate } from "react-router-dom";
 import { Container, StyledInput, StyledButton } from "../styles/CommonStyle";
+import { UserContext } from "../context/UserStore";
 
 // Link 바로감 , useNavigate 조건을 걸고 갈때
 const Login = () => {
@@ -13,8 +14,13 @@ const Login = () => {
   const [isPw, setIsPw] = useState(false);
 
   const navigate = useNavigate(); // 페이지 이동을 위한 객체 생성
-  const btnRef = useRef(null);
+
+  const context = useContext(UserContext);
+  // useContext 훅으로 우리가 만든 UserContext의 전역 상태값에 접근
+  const { setUserId, setPassword } = context;
+
   const onChangeId = (e) => {
+    setUserId(e.target.value);
     setInputId(e.target.value);
     e.target.value.length >= 5 ? setIsId(true) : setIsId(false);
   };
@@ -27,7 +33,8 @@ const Login = () => {
   const onClickLogin = () => {
     // axios 비동기 통신을 해야함
     // 그리고 결과 수신
-
+    setUserId(inputId);
+    setPassword(inputPw);
     if (inputId === "agapefaith" && inputPw === "agape99^^") {
       navigate("/home");
     } else {
