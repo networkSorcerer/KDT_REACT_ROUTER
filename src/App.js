@@ -10,6 +10,10 @@ import Login from "./pages/Login";
 import Layout from "./styles/Layout";
 import UserStore from "./context/UserStore";
 import Setting from "./pages/Setting";
+import ImageUploader from "./pages/ImageUploader";
+import Upload from "./pages/FireImage";
+import MaterialEx from "./MaterialEx";
+import CardExample from "./Card";
 function App() {
   return (
     <>
@@ -25,6 +29,10 @@ function App() {
               <Route path="/articles" element={<Articles />} />
               <Route path="/article/:id" element={<Article />} />
               <Route path="/setting" element={<Setting />} />
+              <Route path="/firebase" element={<ImageUploader />} />
+              <Route path="/fire" element={<Upload />} />
+              <Route path="/material" element={<MaterialEx />} />
+              <Route path="/card" element={<CardExample />} />
             </Route>
           </Routes>
         </Router>

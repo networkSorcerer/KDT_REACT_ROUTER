@@ -45,7 +45,7 @@ const Login = () => {
     navigate("/home");
   };
   return (
-    <Container>
+    <Container >
       <StyledInput
         value={inputId}
         placeholder="아이디 입력"
