@@ -8,7 +8,7 @@ const GetImage = () => {
   useEffect(() => {
     const fetchImage = async () => {
       const storage = getStorage();
-      // 파일 이름이 '다운로드'인 경우
+
       const fileRef = ref(storage, `images/폴더/파일이름`);
 
       try {
